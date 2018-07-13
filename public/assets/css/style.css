@@ -1,0 +1,112 @@
+/*!
+ * Start Bootstrap - Heroic Features (https://startbootstrap.com/template-overviews/heroic-features)
+ * 
+Copyright 2013-2017 Start Bootstrap
+ * 
+Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+
+
+body {
+  padding-top: 54px;
+}
+
+
+@media (min-width: 992px) 
+{
+  body {
+    padding-top: 56px;
+  }
+}
+
+
+ /*.card {
+  height: 100%;
+} */ 
+
+.card-title{
+  height: 100px;
+}
+
+.jumbotron {
+  background-color:#d7cec7;
+}
+.list-group-item.active{
+  background-color: #6d7993;
+  border-color:#6d7993;
+}
+.list-group-item:hover{
+  background-color:#d7cec7;
+  border-color:#d7cec7;
+
+}
+.btn-primary{
+  background-color: #6d7993;
+  border-color:#6d7993;
+}
+.btn-secondary{
+  background-color: #6d7993;
+  border-color:#6d7993;
+}
+a{
+  color:#6c648b;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #6c648b;
+  border-color: #6c648b;
+}
+.card-img-top{
+  height:300px;
+}
+a:hover{
+  color:#343a40;
+}
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #6c648b;
+  border-color: #6c648b;
+}
+.btn-success{
+  background-color: #6d7993;
+  border-color: #6d7993;
+}
+.btn-success:hover{
+  background-color: #6c648b;
+  border-color:#6c648b;
+}
+.page-link{
+  color:#343a40;
+}
+.page-link:hover{
+  color:#343a40;
+}
+.cover{
+  width: 250px;
+}
+.flex-md-row{
+  border:0px;
+}
+.button_back{
+  background-color: #343a40;
+  color: white;
+  width: 80px;
+  position: absolute;
+  bottom: 5px;
+  right: 50px;
+  border-style: solid;
+  border-radius: 7px;
+}
+
+
