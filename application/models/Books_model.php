@@ -5,7 +5,7 @@ class Books_model extends CI_Model {
     public function list_books($limit = FALSE, $offset = FALSE){
         if($limit!== FALSE)
         {
-            $this->db->limit($offset, $limit);
+            $this->db->limit($limit, $offset);
         }
         $list=$this->db->get("books")->result();
         return $list;

@@ -1,50 +1,41 @@
 <?php
-class Books extends CI_Controller{
+class Books extends CI_Controller {
 
-    public function index($offset=0){
+    public function index(){
 
-    $this->load->library('pagination');
-    $this->load->library('table');
-    $config['base_url'] = base_url().'books/index';
-    //echo uri_string();
-    //var_dump(uri_string());
-    //$this->uri->total_segments();
-    //var_dump($this->db->get('books')->num_rows());
-    $config['total_rows'] = $this->db->get('books')->num_rows();
-    $config['per_page'] = 3;
-    $config['uri_segment']= 5;
-    //$config['attributes'] = array('class' => 'pagination-link');
-    $config['page_query_string'] = TRUE;
+        $this->load->library('table');
 
-    $this->pagination->initialize($config); 
-    //$start = isset($_GET['start']) ? $_GET['start'] : 0;
-    //$book_list = $this->Books_model->list_books($start, $config['per_page']);
-    $book_list = $this->Books_model->list_books($this->uri->segment(5), $config['per_page'], $offset);
-    $genre_list= $this->Books_model->list_genres();
-    $author_list= $this->Books_model->list_authors();
+        //pagination
+        $config['base_url'] = '/books/index/';
+        $config['total_rows'] = $this->db->get('books')->num_rows();
+        $config['per_page'] = 2;
+        $config['num_links'] = 10;
+        $config['first_link'] = 'First';
+        $config['use_page_numbers'] = TRUE;
+        $this->pagination->initialize($config); 
 
-    $view_data = array(
-        "book_list" => $book_list,
-        "genre_list" => $genre_list,
-        "author_list" => $author_list
-    );
-
-    $this->load->view("book_list",$view_data); 
-   
-
-
-
-        //$this->db->get('books', $config['per_page'], $this->uri->segment(3));
-        //$data['records'] = $this->Books_model->list_books(FALSE, $config['per_page'], $offset);
-        //$data['records'] = $this->Books_model->list_books($this->uri->segment(3), $config['per_page'], $offset);
-        //$book_list = $this->Books_model->list_books($this->uri->segment(3), $config['per_page'], $offset);
+        //trick
+        $page_number = ($this->uri->segment(3)) == null ? 1 : $this->uri->segment(3);
+        $offset = $config["per_page"] * ($page_number - 1);
         
-        //$book_list = $this->Books_model->list_books($start, $config['per_page']);
-        
+        $limit = $config['per_page'];
 
+        //model data
+        $book_list = $this->Books_model->list_books($limit, $offset);
         
+        $genre_list= $this->Books_model->list_genres();
+        $author_list= $this->Books_model->list_authors();
+
+        $view_data = array(
+            "book_list" => $book_list,
+            "genre_list" => $genre_list,
+            "author_list" => $author_list
+        );
+
+        $this->load->view("book_list",$view_data); 
         
     }
+
 
     public function get_book($id){
         
