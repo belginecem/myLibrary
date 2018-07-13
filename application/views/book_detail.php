@@ -48,7 +48,7 @@
                 
                 <!--<a href="#">Continue reading</a>-->
               </div>
-              <img class="card-img-left flex-auto d-none d-lg-block" src="<?php echo base_url();?>uploads/<?php echo $item->cover;?>" alt="Card image cap" style="height:300px;">
+              <img class="card-img-left flex-auto d-none d-lg-block" src="<?php echo base_url();?>public/uploads/<?php echo $item->cover;?>" alt="Card image cap" style="height:300px;">
               </div>
             <div class="card-body">
               <h3> Description: </h3></br>

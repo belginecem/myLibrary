@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/myLibrary/';
+$config['base_url'] = '/';
 
 /*
 |--------------------------------------------------------------------------
@@ -182,7 +182,7 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | use segment based URLs.
 |
 */
-$config['enable_query_strings'] = TRUE;
+$config['enable_query_strings'] = FALSE;
 $config['controller_trigger'] = 'c';
 $config['function_trigger'] = 'm';
 $config['directory_trigger'] = 'd';
@@ -312,7 +312,6 @@ $config['cache_path'] = '';
 |
 */
 $config['cache_query_string'] = FALSE;
-$config['page_query_string'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -325,7 +324,7 @@ $config['page_query_string'] = TRUE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = "Test@123";
+$config['encryption_key'] = 'deneme234';
 
 /*
 |--------------------------------------------------------------------------

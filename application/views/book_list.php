@@ -30,11 +30,13 @@
         </div>
     <div class="col-lg-9">
               <!-- Jumbotron Header -->
+              <!--
       <header class="jumbotron my-4">
         <h1 class="display-3">Hello!</h1>
         <p class="lead">Welcome to my library! Click to list all books </p>
-        <!-- <a href="#" class="btn btn-primary btn-lg">Call to action!</a> -->
+        
       </header>
+            -->
 
       <!-- Page Features -->
       <div class="row text-center">
@@ -42,13 +44,13 @@
           <input type="hidden" name="id" value="<?php echo $item->id; ?>" >
           <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src="<?php echo base_url();?>uploads/<?php echo $item->cover;?>" alt="book_cover">
+            <img class="card-img-top" src="/public/uploads/<?php echo $item->cover;?>" alt="book_cover">
             <div class="card-body">
               <h4 class="card-title"><?php echo $item->name; ?></h4>
              <!-- <p class="card-text">A great modern classic and the prelude to The Lord of the Rings.</p> -->
             </div>
             <div class="card-footer">
-              <a href="<?php echo base_url();?>Books/get_book/<?php echo $item->id; ?>" class="btn btn-primary">Find Out More!</a>
+              <a href="/Books/get_book/<?php echo $item->id; ?>" class="btn btn-primary">Find Out More!</a>
             </div>
           </div>
         </div>
@@ -72,8 +74,11 @@
 
 
     
-<!--
+
 </div>
+
+
+
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -87,7 +92,7 @@
             </li>
         </ul>
     </nav>
-        -->
+      
     
 
 <?php $this->load->view('include/footer.php'); ?>

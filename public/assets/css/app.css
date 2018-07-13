@@ -1,0 +1,113 @@
+/*
+    Document   : app
+    Created on : 04.Eki.2012, 11:16:48
+    Author     : tanero
+    Description: Purpose of the stylesheet follows.
+*/
+
+::selection{ background-color: #E13300; color: white; }
+::moz-selection{ background-color: #E13300; color: white; }
+::webkit-selection{ background-color: #E13300; color: white; }
+html {
+    background: url("../images/bg.jpg") repeat scroll 0 0  transparent;
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    margin: 10px;
+    font: 12px/18px normal Helvetica, Arial, sans-serif;
+    color: #4F5155;
+
+    background: url("../images/bg.jpg") repeat scroll 0 0  transparent;
+}
+.border {
+    border: 1px solid #ccc; 
+}
+
+a {
+    color: #003399;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+h1 {
+    color: #444;
+    background-color: transparent;
+    border-bottom: 1px solid #D0D0D0;
+    font-size: 19px;
+    font-weight: normal;
+    margin: 0 0 14px 0;
+    padding: 14px 15px 10px 15px;
+}
+
+code {
+    font-family: Consolas, Monaco, Courier New, Courier, monospace;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #D0D0D0;
+    color: #002166;
+    display: block;
+    margin: 14px 0 14px 0;
+    padding: 12px 10px 12px 10px;
+}
+
+#body{
+    margin: 0 15px 0 15px;
+}
+
+p.footer{
+    text-align: right;
+    font-size: 11px;
+    border-top: 1px solid #D0D0D0;
+    /** line-height: 18px; **/
+    padding: 0 10px 0 10px;
+    margin: 20px 0 0 0;
+}
+
+th {
+    border: 1px solid #D0D0D0;
+    text-align: center;
+    background-color: #4F5155;
+    color: #fff;
+    height: 10px;
+    font-size: 12px;
+    vertical-align: center !important;
+    padding: 5px;
+}
+tr {
+
+    /*border: 1px solid #D0D0D0;*/
+}
+td {
+    height: 14px;
+    border: 1px solid #D0D0D0;
+    padding: 5px;
+    font-size: 12px;
+}
+
+div.error {
+    color: red;
+}
+
+div.success {
+    color: red;
+    font-weight: bold;
+}
+
+div.list_table table {
+    font-size: 10px;    
+}
+
+#menu {
+    background-color: #989090;
+    height: 44px;
+    background: url("../images/menu-bg.jpg") repeat-x;
+}
+._css3m{display:none}
+
+/** *:focus {outline: none;}**/
+
+#paging a {
+    padding: 3px;
+}

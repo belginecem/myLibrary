@@ -20,9 +20,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		//$this->load->helper('url');
-		//var_dump(base_url());
-		//$this->load->view('book_list');
-		//$this->load->view("book_detail");
+		$this->load->view('welcome_message');
+	}
+
+	public function deneme(){
+		echo "welcome-deneme";
 	}
 }
