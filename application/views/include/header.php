@@ -5,16 +5,23 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="My Library">
+    <meta name="author" content="E.Belgin">
+    <link rel="icon" href="/public/assets/images/icon.png">
 
     <title>My Library</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/assets/plugins/bootstrap/css/bootstrap.css">
 
     <!-- Custom styles for this template -->
     <link href="/public/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/assets/plugins/fontawesome/css/all.css">
+
+
+    
+    
 
   </head>
 

@@ -41,6 +41,7 @@ body {
 
 .jumbotron {
   background-color:#d7cec7;
+  height:250px;
 }
 .list-group-item.active{
   background-color: #6d7993;
@@ -107,6 +108,20 @@ a:hover{
   right: 50px;
   border-style: solid;
   border-radius: 7px;
+}
+.pagination{
+  justify-content: center;
+}
+.page-item.active .page-link{
+  background-color: #6d7993;
+  border-color: #6d7993;
+}
+.btn-secondary{
+  margin:5px;
+  float: right; 
+}
+.form-control{
+  margin:5px;
 }
 
 

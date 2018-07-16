@@ -7,9 +7,11 @@
             <h5 class="card-header">Search</h5>
             <div class="card-body">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
+                  <form action="/Books/execute_search" method="post" accept-charset="utf-8"> 
+                    <input type="text" name="search" value="" class="form-control" placeholder="Search for...">
+                    <input type="submit" name="search_submit" value="Submit"  class="btn btn-secondary"> 
+                  </form>
                 </span>
               </div>
             </div>
@@ -17,13 +19,13 @@
           <h1 class="my-4">Genres</h1>
           <div class="list-group">
           <?php foreach($genre_list as $item){ //var_dump($item);?>
-              <a href="#" class="list-group-item"><?php echo $item->name;?></a>
+              <a href="/Books/genre" class="list-group-item"><?php echo $item->name;?></a>
           <?php } ?>
           </div>
           <h1 class="my-4">Authors</h1>
           <div class="list-group">
           <?php foreach($author_list as $item){ ?>
-              <a href="#" class="list-group-item"><?php echo $item->name; ?></a>
+              <a href="/Books/author" class="list-group-item"><?php echo $item->name; ?></a>
           <?php } ?>
           </div>          
         </div>
@@ -40,8 +42,8 @@
                 <h3 class="mb-0">
                   <h1 class=""><?php echo $item->book_name; ?></h1>
                 </h3>
-                <a href="#" class=""><h3><?php echo $item->author_name; ?></h3></a>
-                <a href="#" class=""><h5><?php echo $item->genre_name; ?></h5></a>
+                <a href="/Books/author/<?php echo $item->author_name; ?>" class=""><h3><?php echo $item->author_name; ?></h3></a>
+                <a href="/Books/genre/<?php echo $item->genre_name; ?>" class=""><h5><?php echo $item->genre_name; ?></h5></a>
                 <h6 class=""><?php echo $item->publication_date; ?></h6>
                 <h6 class="">ISBN: <?php echo $item->ISBN; ?></h6>
                 <!-- <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
@@ -76,7 +78,7 @@
           </div>
         <?php } ?>
         
-    <input type="button" value="Back" class="button_back" onclick="location.href='<?php echo base_url();?>'"/>
+    <input type="button" value="Back" class="button_back" onclick="location.href='/'"/>
       </div>
       <!-- /.col-lg-9 -->
 

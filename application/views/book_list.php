@@ -8,35 +8,36 @@
             <h5 class="card-header">Search</h5>
             <div class="card-body">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
+                  <form action="/Books/execute_search" method="post" accept-charset="utf-8"> 
+                    <input type="text" name="search" value="" class="form-control" placeholder="Search for...">
+                    <input type="submit" name="search_submit" value="Submit"  class="btn btn-secondary"> 
+                  </form>
                 </span>
               </div>
             </div>
           </div>
           <h1 class="my-4">Genres</h1>
           <div class="list-group">
-            <?php foreach($genre_list as $item){ //var_dump($item);?>
-              <a href="#" class="list-group-item"><?php echo $item->name;?></a>
+            <?php foreach($genre_list as $item){?>
+              <a href="/Books/genre/<?php echo $item->name; ?>" class="list-group-item"><?php echo $item->name;?></a>
             <?php } ?>
           </div>
           <h1 class="my-4">Authors</h1>
           <div class="list-group">
             <?php foreach($author_list as $item){ ?>
-              <a href="#" class="list-group-item"><?php echo $item->name; ?></a>
+              <a href="/Books/author/<?php echo $item->name; ?>" class="list-group-item"><?php echo $item->name; ?></a>
             <?php } ?>
           </div>          
         </div>
     <div class="col-lg-9">
               <!-- Jumbotron Header -->
-              <!--
+              
       <header class="jumbotron my-4">
         <h1 class="display-3">Hello!</h1>
-        <p class="lead">Welcome to my library! Click to list all books </p>
-        
+        <p class="lead">Welcome to my library! </p>
       </header>
-            -->
+          
 
       <!-- Page Features -->
       <div class="row text-center">
@@ -46,8 +47,7 @@
           <div class="card">
             <img class="card-img-top" src="/public/uploads/<?php echo $item->cover;?>" alt="book_cover">
             <div class="card-body">
-              <h4 class="card-title"><?php echo $item->name; ?></h4>
-             <!-- <p class="card-text">A great modern classic and the prelude to The Lord of the Rings.</p> -->
+              <h4 class="card-title"><?php echo $item->book_name; ?></h4>
             </div>
             <div class="card-footer">
               <a href="/Books/get_book/<?php echo $item->id; ?>" class="btn btn-primary">Find Out More!</a>
@@ -67,32 +67,8 @@
     </div>
     <!-- /.container -->
     <div class="pagination-links">
-    
-
     <?php echo $this->pagination->create_links(); ?>
-    
-
-
-    
-
-</div>
-
-
-
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+    </div>
+        
       
-    
-
 <?php $this->load->view('include/footer.php'); ?>
