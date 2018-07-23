@@ -7,8 +7,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/public/jquery/jquery.min.js"></script>
-    <script src="/public/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="/public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 

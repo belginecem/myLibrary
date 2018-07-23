@@ -37,7 +37,6 @@ class Books extends CI_Controller {
 
         //model data
         $book_list = $this->Books_model->list_books($limit, $offset);
-        
         $genre_list= $this->Books_model->list_genres();
         $author_list= $this->Books_model->list_authors();
 
@@ -53,9 +52,7 @@ class Books extends CI_Controller {
 
 
     public function get_book($id){
-        
-        //$encodedId=$this->encrypt->encode($id);
-        //$id=$decodedId;
+        $id=decrypt_url($id);
         $genre_list= $this->Books_model->list_genres();
         $author_list= $this->Books_model->list_authors();
         $book_detail=$this->Books_model->book_detail($id);
@@ -64,26 +61,12 @@ class Books extends CI_Controller {
             "genre_list" => $genre_list,
             "author_list" => $author_list
         );
-        //var_dump($book_detail);
-        //$data["id"]=$id;
         $this->load->view("book_detail",$view_data);
-        //$decodedId=$this->encrypt->decode($encodedId);
     }
- 
-    public function execute_search()
-        {
-            // Retrieve the posted search term.
-            $search_term = $this->input->post('search');
-        
-            // Use a model to retrieve the results. 
-            $data['results'] = $this->Books_model->get_results($search_term);
-            // Pass the results to the view.
-            $this->load->view('search_result',$data);
-            
-            }
+
     public function genre($genre){
-        $genre = urldecode($genre);
-        $book_list = $this->Books_model->list_by_genre($genre);
+        $id=decrypt_url($genre);
+        $book_list = $this->Books_model->list_by_genre($id);
         $genre_list= $this->Books_model->list_genres();
         $author_list= $this->Books_model->list_authors();
 
@@ -96,8 +79,8 @@ class Books extends CI_Controller {
 
     }
     public function author($author){
-        $author = urldecode($author);
-        $book_list = $this->Books_model->list_by_author($author);
+        $id=decrypt_url($author);
+        $book_list = $this->Books_model->list_by_author($id);
         $genre_list= $this->Books_model->list_genres();
         $author_list= $this->Books_model->list_authors();
         
@@ -107,21 +90,21 @@ class Books extends CI_Controller {
             "genre_list" => $genre_list,
             "author_list" => $author_list
         );
-        //var_dump($book_list);
         $this->load->view("book_list",$view_data);
-        
-
+    
     }
+
+    public function execute_search()
+        {
+            $search_term = $this->input->post('search');
+            $data = $this->Books_model->get_results($search_term);
+            //var_dump($data);
+            $data = array(
+                "results" => $data
+            );
+            $this->load->view('search_result',$data);
+            }
+
     
 
-    /* public function insert(){
-        $this->load->model("books_model");
-        //$data=array();
-        $insert=$this->books_model->add_books($data);
-        if($insert){
-            echo "successful";
-        }else{
-            echo "failed";
-        }
-    } */
 }

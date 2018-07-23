@@ -1,4 +1,12 @@
 <?php
+/*
+$mysql = new PDO('mysql:host=localhost;charset=utf8;', 'id6539922_root', 'potterhead188');
+$query = $mysql->prepare('show databases');
+$query->execute();
+var_dump($query->fetchAll());
+
+exit();
+*/
 /**
  * CodeIgniter
  *
@@ -312,4 +320,4 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
-require_once BASEPATH.'core/CodeIgniter.php';
+ require_once BASEPATH.'core/CodeIgniter.php';

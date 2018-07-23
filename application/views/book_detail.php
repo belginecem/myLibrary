@@ -18,14 +18,14 @@
           </div>
           <h1 class="my-4">Genres</h1>
           <div class="list-group">
-          <?php foreach($genre_list as $item){ //var_dump($item);?>
-              <a href="/Books/genre" class="list-group-item"><?php echo $item->name;?></a>
+          <?php foreach($genre_list as $item){ ?>
+              <a href="/Books/genre/<?php echo $item->id; ?>" class="list-group-item"><?php echo $item->name;?></a>
           <?php } ?>
           </div>
           <h1 class="my-4">Authors</h1>
           <div class="list-group">
           <?php foreach($author_list as $item){ ?>
-              <a href="/Books/author" class="list-group-item"><?php echo $item->name; ?></a>
+              <a href="/Books/author/<?php echo $item->id; ?>" class="list-group-item"><?php echo $item->name; ?></a>
           <?php } ?>
           </div>          
         </div>
@@ -38,15 +38,13 @@
           <div class="col-md-12">
               <div class="card flex-md-row mb-4 box-shadow h-md-250">
               <div class="card-body d-flex flex-column align-items-start">
-                <!-- <strong class="d-inline-block mb-2 text-primary">World</strong> -->
                 <h3 class="mb-0">
                   <h1 class=""><?php echo $item->book_name; ?></h1>
                 </h3>
-                <a href="/Books/author/<?php echo $item->author_name; ?>" class=""><h3><?php echo $item->author_name; ?></h3></a>
-                <a href="/Books/genre/<?php echo $item->genre_name; ?>" class=""><h5><?php echo $item->genre_name; ?></h5></a>
+                <a href="/Books/author/<?php echo $item->id; ?>" class=""><h3><?php echo $item->author_name; ?></h3></a>
+                <a href="/Books/genre/<?php echo $item->id; ?>" class=""><h5><?php echo $item->genre_name; ?></h5></a>
                 <h6 class=""><?php echo $item->publication_date; ?></h6>
                 <h6 class="">ISBN: <?php echo $item->ISBN; ?></h6>
-                <!-- <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
                 
                 <!--<a href="#">Continue reading</a>-->
               </div>
@@ -55,8 +53,6 @@
             <div class="card-body">
               <h3> Description: </h3></br>
               <p class="card-text"><?php echo $item->description; ?></p>
-              <!--<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>-->
-              <!--&nbsp; 4.0/5-->
             </div>
             <div class="card card-outline-secondary my-4">
               <div class="card-header">
@@ -64,15 +60,11 @@
               </div>
                 <div class="card-body">
                   <p><?php echo $item->quote;?></p>
-                  <!-- <small class="text-muted">Posted by Anonymous on 3/1/17</small> -->
                   <hr>
                   <p><?php echo $item->quote_2; ?></p>
-                  <!-- <small class="text-muted">Posted by Anonymous on 3/1/17</small> -->
                   <hr>
                   <p><?php echo $item->quote_3; ?></p>
-                  <!-- <small class="text-muted">Posted by Anonymous on 3/1/17</small> -->
                   <hr>
-                  <!-- <a href="#" class="btn btn-success">Leave a Review</a> -->
                 </div>
             </div>
           </div>

@@ -123,5 +123,10 @@ a:hover{
 .form-control{
   margin:5px;
 }
-
+.content{
+  margin:35px;
+}
+.table{
+  border-style: solid;
+}
 

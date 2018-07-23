@@ -1,5 +1,4 @@
 <?php $this->load->view('include/header.php'); ?>
-<?php //print_r($book_list); ?>
     <!-- Page Content -->
     <div class="container">
     <div class="row">
@@ -20,13 +19,13 @@
           <h1 class="my-4">Genres</h1>
           <div class="list-group">
             <?php foreach($genre_list as $item){?>
-              <a href="/Books/genre/<?php echo $item->name; ?>" class="list-group-item"><?php echo $item->name;?></a>
+              <a href="/Books/genre/<?php echo $item->id; ?>" class="list-group-item"><?php echo $item->name;?></a>
             <?php } ?>
           </div>
           <h1 class="my-4">Authors</h1>
           <div class="list-group">
             <?php foreach($author_list as $item){ ?>
-              <a href="/Books/author/<?php echo $item->name; ?>" class="list-group-item"><?php echo $item->name; ?></a>
+              <a href="/Books/author/<?php echo $item->id; ?>" class="list-group-item"><?php echo $item->name; ?></a>
             <?php } ?>
           </div>          
         </div>
@@ -41,7 +40,7 @@
 
       <!-- Page Features -->
       <div class="row text-center">
-        <?php foreach($book_list as $item){ //var_dump($item);?>
+        <?php foreach($book_list as $item){ ?>
           <input type="hidden" name="id" value="<?php echo $item->id; ?>" >
           <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
@@ -56,13 +55,11 @@
         </div>
         <?php } ?>
         
-
        
       </div>
       <!-- /.row -->
 </div>
     
-
     </div>
     </div>
     <!-- /.container -->
