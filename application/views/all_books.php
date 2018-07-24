@@ -46,13 +46,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/Admin/all_authors">
                   <span data-feather="feather"></span>
                   Authors
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/Admin/all_genres">
                   <span data-feather="list"></span>
                   Genres
                 </a>
@@ -94,7 +94,7 @@
           </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="padding:80px;">
         
           
           <h2>Books</h2>
@@ -102,21 +102,25 @@
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
-                  <th>#</th>
                   <th>Book Name</th>
                   <th>Author</th>
                   <th>Genre</th>
                   <th>ISBN</th>
+                  <th>Publication Date</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-              <?php foreach($results as $val){ ?>
+              <?php foreach($books as $val){ ?>
                 <tr>
                   <td><?php echo $val->book_name ;?></td>
                   <td><?php echo $val->author_name;?></td>
                   <td><?php echo $val->genre_name;?></td>
                   <td><?php echo $val->ISBN;?></td>
+                  <td><?php echo $val->publication_date;?></td>
+                  <td><button type="button" class="btn btn-primary"><span data-feather="edit"></span></button>
+                  <button type="button" class="btn btn-danger"><span data-feather="trash-2"></span></button></td>
+
                 </tr>
               <?php } ?>
               </tbody>

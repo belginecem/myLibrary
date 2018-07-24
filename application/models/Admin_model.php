@@ -17,9 +17,25 @@ class Admin_model extends CI_Model{
          }  
         
     public function all_books(){
-        $query=$this->db->select('books.id,books.name as book_name,books.description,books.publication_date,books.ISBN,books.cover,books.quote,books.quote_2,books.quote_3')
+        $query=$this->db->select('books.id,books.name as book_name,authors.name as author_name,genres.name as genre_name,books.description,books.publication_date,books.ISBN,books.cover')
                        ->from('books')
+                       ->join('authors','authors.id=books.author_id')
+                       ->join('genres','genres.id=books.genre_id')
                        ->get();
+        $result = $query->result();
+        return $result;
+    }
+    public function all_authors(){
+        $query=$this->db->select('*')
+                    ->from('authors')
+                    ->get();
+        $result = $query->result();
+        return $result;
+    }
+    public function all_genres(){
+        $query=$this->db->select('*')
+                    ->from('genres')
+                    ->get();
         $result = $query->result();
         return $result;
     }

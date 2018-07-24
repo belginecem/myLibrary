@@ -1,7 +1,7 @@
 <?php $this->load->view('include/header.php'); ?>
 <div class=content>
     <?php 
-    echo '<h3> Book List</h3>';
+    echo '<h3> Search Results </h3>';
     echo '<table id="maintable"  class="table">';
     echo '<th> Book Name </th>';
     echo '<th> Book Author </th>';

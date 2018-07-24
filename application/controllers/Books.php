@@ -98,12 +98,12 @@ class Books extends CI_Controller {
         {
             $search_term = $this->input->post('search');
             $data = $this->Books_model->get_results($search_term);
-            //var_dump($data);
             $data = array(
                 "results" => $data
             );
             $this->load->view('search_result',$data);
             }
+            
 
     
 

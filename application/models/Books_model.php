@@ -61,8 +61,7 @@ class Books_model extends CI_Model {
         $result = $query->result();
         foreach($result as $item){
             $item->id = encrypt_url($item->id);
-        }
-        //var_dump($result);                
+        }               
         return $result;
     }
     public function list_by_genre($genre){

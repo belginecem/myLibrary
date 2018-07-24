@@ -50,8 +50,28 @@ class Admin extends CI_Controller{
         }
         public function all_books(){
             $this->load->model("Admin_model");
-            $this->Admin_model->all_books();
-            $this->load->view('all_books');
+            $data= $this->Admin_model->all_books();
+            $data = array(
+                "books" => $data
+            );
+            $this->load->view('all_books',$data);
+        }
+        public function all_authors(){
+            $this->load->model("Admin_model");
+            $data=$this->Admin_model->all_authors();
+            $data = array(
+                "authors" => $data
+            );
+            $this->load->view('all_authors',$data);
+        }
+        public function all_genres(){
+            $this->load->model('Admin_model');
+            $data = $this->Admin_model->all_genres();
+            $data = array(
+                'genres' => $data
+            );
+            $this->load->view('all_genres',$data);
+
         }
     
 
