@@ -33,14 +33,14 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="/Admin/admin_panel">
+                <a class="nav-link " href="/Admin/admin_panel">
                   <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
+                  Dashboard <span class="sr-only"></span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Admin/all_books">
-                  <span data-feather="book"></span>
+                <a class="nav-link active" href="/Admin/all_books">
+                  <span data-feather="book">(current)</span>
                   Books
                 </a>
               </li>
@@ -57,55 +57,42 @@
                 </a>
               </li>
             </ul>
+
           </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
-       </div>
-        <div class="inner-block">
-<!--market updates updates-->
-	 <div class="market-updates">
-			<div class="col-md-4 market-update-gd">
-				<div class="market-update-block clr-block-1">
-					<div class="col-md-8 market-update-left">
-						<h3><?php echo $books; ?></h3>
-						<h4>Total Book</h4>
-					</div>
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-file-text-o"> </i>
-					</div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="col-md-4 market-update-gd">
-				<div class="market-update-block clr-block-2">
-				 <div class="col-md-8 market-update-left">
-					<h3><?php echo $authors; ?></h3>
-					<h4>Total Author</h4>
-				  </div>
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-eye"> </i>
-					</div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="col-md-4 market-update-gd">
-				<div class="market-update-block clr-block-3">
-					<div class="col-md-8 market-update-left">
-						<h3><?php echo $genres; ?></h3>
-						<h4>Total Genre</h4>
-					</div>
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-envelope-o"> </i>
-					</div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div>
-		   <div class="clearfix"> </div>
-		</div>
-
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="padding:80px;">
+        
+          
+          <h2>New Book</h2>
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Book Name</label>
+            <input type="" class="form-control" id="exampleFormControlInput1" placeholder="Book Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Author</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <?php foreach($authors as $val) {?>
+              <option><?php echo $val->name;?></option>
+              <?php } ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Genre</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <?php foreach($genres as $val) {?>
+              <option><?php echo $val->name;?></option>
+              <?php } ?>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+      </form>
+          
         </main>
       </div>
     </div>

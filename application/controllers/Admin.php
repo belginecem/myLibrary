@@ -46,7 +46,14 @@ class Admin extends CI_Controller{
         }  
 
         public function admin_panel(){
-            $this->load->view('admin_panel');
+            $this->load->model('Admin_model');
+            $this->Admin_model->count_books();
+            $this->Admin_model->count_authors();
+            $this->Admin_model->count_genres();
+            $data['books'] = $this->Admin_model->count_books();
+            $data['authors'] = $this->Admin_model->count_authors();
+            $data['genres'] = $this->Admin_model->count_genres();
+            $this->load->view('admin_panel',$data);
         }
         public function all_books(){
             $this->load->model("Admin_model");
@@ -71,8 +78,44 @@ class Admin extends CI_Controller{
                 'genres' => $data
             );
             $this->load->view('all_genres',$data);
-
         }
+        public function new_book(){
+            $this->load->view('new_book');
+        }
+        public function new_author(){
+            $this->load->view('new_author');
+        }
+        public function new_genre(){
+            $this->load->view('new_genre');
+        }
+        public function delete_book($id){
+            $delete = $this->db->delete("books",array("id" => $id));
+            if($delete){
+                redirect("/Admin/all_books");
+            }else{
+                echo "Error!";
+            }
+        }
+        public function delete_author($id){
+            $delete = $this->db->delete("authors",array("id" => $id));
+            if($delete){
+                redirect("/Admin/all_authors");
+            }else{
+                echo "Error!";
+            }
+        }
+        public function delete_genre($id){
+            $delete = $this->db->delete("genres",array("id" => $id));
+            if($delete){
+                redirect("/Admin/all_genres");
+            }else{
+                echo "Error!";
+            }
+        }
+        public function edit_book($id){
+            $this->load->view('edit_book');
+        }
+        
     
 
 }

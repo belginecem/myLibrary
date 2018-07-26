@@ -39,6 +39,15 @@ class Admin_model extends CI_Model{
         $result = $query->result();
         return $result;
     }
+    public function count_books(){
+        return $num_results = $this->db->count_all_results('books');
+    }
+    public function count_authors(){
+        return $num_results = $this->db->count_all_results('authors');
+    }
+    public function count_genres(){
+        return $num_results = $this->db->count_all_results('genres');
+    }
  
 
 
