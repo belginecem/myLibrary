@@ -40,7 +40,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/Admin/all_books">
-                  <span data-feather="book">(current)</span>
+                  <span data-feather="book"></span>
                   Books
                 </a>
               </li>
@@ -65,11 +65,15 @@
         
           
           <h2>New Author</h2>
-        <form>
+          <?php if(isset($error)){ ?>
+          <div class="alert alert-warning" role="alert"><?php echo $error; ?></div>
+          <?php } ?>
+        <form action="/Admin/add_author" method = "POST">
           <div class="form-group">
-            <label for="exampleFormControlInput1">Author Name</label>
-            <input type="" class="form-control" id="exampleFormControlInput1" placeholder="Author Name">
+            <label for="exampleFormControlInput1">Author Name <a style="color:red">*</a></label>
+            <input type="" name= "name" class="form-control" id="exampleFormControlInput1" placeholder="Author Name">
           </div>
+          <button class="btn btn-primary" type="submit" >Submit</a>
       </form>
           
         </main>

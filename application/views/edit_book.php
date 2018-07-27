@@ -65,34 +65,75 @@
         
           
           <h2>New Book</h2>
-        <form>
+          <?php if(isset($error)){ ?>
+          <div class="alert alert-warning" role="alert"><?php echo $error; ?></div>
+          <?php } ?>
+        <?php foreach($book as $item){ ?>
+
+        <form enctype="multipart/form-data" action="/Admin/update_book/" method = "POST">
+          <input type = "hidden" name ="book_id" value="<?php echo $item->id;?>">
           <div class="form-group">
-            <label for="exampleFormControlInput1">Book Name</label>
-            <input type="" class="form-control" id="exampleFormControlInput1" placeholder="Book Name">
+            <label for="exampleFormControlInput1">Book Name <a style="color:red">*</a></label>
+            <input type="" name= "name" class="form-control" id="exampleFormControlInput1" value="<?php echo  $item->book_name;?>">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Author</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="exampleFormControlFile1">Cover</label><br>
+            <img src="<?php echo base_url("public/uploads/".$item->cover);?>" style =" height: 150px;">
+            <p>(Current Image)</p><br>
+            <input name="cover" type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Author <a style="color:red">*</a></label>
+            <select name="author_id" class="form-control" id="exampleFormControlSelect1">
               <?php foreach($authors as $val) {?>
-              <option><?php echo $val->name;?></option>
+              <option <?php if($val->name == $item->author_name){echo " "."selected";} else {echo " ";}?> value="<?php echo $val->id; ?>"><?php echo $val->name; ?></option>
               <?php } ?>
             </select>
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Genre</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="exampleFormControlSelect1">Genre <a style="color:red">*</a></label>
+            <select name="genre_id" class="form-control" id="exampleFormControlSelect1">
               <?php foreach($genres as $val) {?>
-              <option><?php echo $val->name;?></option>
+              <option <?php if($val->name == $item->genre_name){echo " "."selected";} else {echo " ";}?> value="<?php echo $val->id; ?>"><?php echo $val->name;?></option>
               <?php } ?>
             </select>
           </div>
+          <div class= "form-group">
+              <label for="inlineFormCustomSelect">Publication Date</label>
+              <select name="publication_date" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <?php 
+                for($i = 1800 ; $i <= date('Y'); $i++){
+                    $selected;
+                    if($i == $item->publication_date){ $selected = "selected";} else {$selected = " "; }
+                    echo "<option"." ".$selected.">".$i."</option>";
+                }
+              ?>
+            </select>
+           </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">ISBN</label>
+            <input type="" name="ISBN" class="form-control" id="exampleFormControlInput1" value="<?php echo  $item->ISBN;?>">
+          </div>
           
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1">Description <a style="color:red">*</a></label>
+            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"><?php echo  $item->description;?></textarea>
           </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Quote</label>
+            <textarea name="quote" class="form-control" id="exampleFormControlTextarea1" rows="2"><?php echo  $item->quote;?></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Quote</label>
+            <textarea name="quote_2" class="form-control" id="exampleFormControlTextarea1" rows="2"><?php echo  $item->quote_2;?>"</textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Quote</label>
+            <textarea name="quote_3" class="form-control" id="exampleFormControlTextarea1" rows="2" ><?php echo  $item->quote_3;?></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" >Submit</a>
       </form>
-          
+      <?php } ?>    
         </main>
       </div>
     </div>

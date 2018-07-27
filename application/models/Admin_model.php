@@ -48,6 +48,38 @@ class Admin_model extends CI_Model{
     public function count_genres(){
         return $num_results = $this->db->count_all_results('genres');
     }
+    public function add_book($data){
+        $this->db->insert('books',$data);
+        redirect('/Admin/all_books');
+    }
+    public function update_run($id, $data){
+        $book_id = $id;
+        foreach($data as $key => $item){
+            if($item == null){
+                unset($data[$key]);
+            } else {
+                $data[$key] = $item;
+            }
+           
+        }
+        $this->db->where('id', $book_id);
+        $this->db->update('books',$data);
+        redirect('/Admin/all_books');
+    }
+    public function add_authort($data){
+        $this->db->insert('authors',$data);
+        redirect('/Admin/all_authors');
+    }
+    public function update_book($id){
+        $detail=$this->db->select('books.id,books.name as book_name,authors.name as author_name,genres.name as genre_name,books.description,books.publication_date,books.ISBN,books.cover,books.quote,books.quote_2,books.quote_3')
+                ->from('books')
+                ->join('authors','authors.id = books.author_id')
+                ->join('genres','genres.id = books.genre_id')
+                ->where('books.id',$id)
+                ->get();
+        $books = $detail->result();
+        return $books;
+    }
  
 
 

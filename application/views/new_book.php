@@ -65,32 +65,66 @@
         
           
           <h2>New Book</h2>
-        <form>
+          <?php if(isset($error)){ ?>
+          <div class="alert alert-warning" role="alert"><?php echo $error; ?></div>
+          <?php } ?>
+        <form enctype="multipart/form-data" action="/Admin/add_book" method = "POST">
           <div class="form-group">
-            <label for="exampleFormControlInput1">Book Name</label>
-            <input type="" class="form-control" id="exampleFormControlInput1" placeholder="Book Name">
+            <label for="exampleFormControlInput1">Book Name <a style="color:red">*</a></label>
+            <input type="" name= "name" class="form-control" id="exampleFormControlInput1" placeholder="Book Name">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Author</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="exampleFormControlFile1">Cover</label>
+            <input name="cover" type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Author <a style="color:red">*</a></label>
+            <select name="author_id" class="form-control" id="exampleFormControlSelect1">
               <?php foreach($authors as $val) {?>
-              <option><?php echo $val->name;?></option>
+              <option value="<?php echo $val->id; ?>"><?php echo $val->name; ?></option>
               <?php } ?>
             </select>
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Genre</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="exampleFormControlSelect1">Genre <a style="color:red">*</a></label>
+            <select name="genre_id" class="form-control" id="exampleFormControlSelect1">
               <?php foreach($genres as $val) {?>
-              <option><?php echo $val->name;?></option>
+              <option value="<?php echo $val->id; ?>"><?php echo $val->name;?></option>
               <?php } ?>
             </select>
+          </div>
+          <div class= "form-group">
+              <label for="inlineFormCustomSelect">Publication Date</label>
+              <select name="publication_date" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <?php 
+                for($i = 1800 ; $i <= date('Y'); $i++){
+                    echo "<option>$i</option>";
+                }
+              ?>
+            </select>
+            </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">ISBN</label>
+            <input type="" name="ISBN" class="form-control" id="exampleFormControlInput1">
           </div>
           
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1">Description <a style="color:red">*</a></label>
+            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Quote</label>
+            <textarea name="quote" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Quote</label>
+            <textarea name="quote_2" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Quote</label>
+            <textarea name="quote_3" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" >Submit</a>
       </form>
           
         </main>
