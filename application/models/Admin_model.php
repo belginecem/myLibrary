@@ -52,6 +52,15 @@ class Admin_model extends CI_Model{
         $this->db->insert('books',$data);
         redirect('/Admin/all_books');
     }
+    
+    public function add_author($data){
+        $this->db->insert('authors',$data);
+        redirect('/Admin/all_authors');
+    }
+    public function add_genre($data){
+        $this->db->insert('genres',$data);
+        redirect('/Admin/all_genres');
+    }
     public function update_run($id, $data){
         $book_id = $id;
         foreach($data as $key => $item){
@@ -65,10 +74,6 @@ class Admin_model extends CI_Model{
         $this->db->where('id', $book_id);
         $this->db->update('books',$data);
         redirect('/Admin/all_books');
-    }
-    public function add_authort($data){
-        $this->db->insert('authors',$data);
-        redirect('/Admin/all_authors');
     }
     public function update_book($id){
         $detail=$this->db->select('books.id,books.name as book_name,authors.name as author_name,genres.name as genre_name,books.description,books.publication_date,books.ISBN,books.cover,books.quote,books.quote_2,books.quote_3')

@@ -65,11 +65,15 @@
         
           
           <h2>New Genre</h2>
-        <form>
+          <?php if(isset($error)){ ?>
+          <div class="alert alert-warning" role="alert"><?php echo $error; ?></div>
+          <?php } ?>
+        <form action="/Admin/add_genre" method= "POST" >
           <div class="form-group">
-            <label for="exampleFormControlInput1">Genre Name</label>
-            <input type="" class="form-control" id="exampleFormControlInput1" placeholder="Genre Name">
+            <label for="exampleFormControlInput1">Genre Name<a style="color:red">*</a></label>
+            <input type="" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Genre Name">
           </div>
+          <button class="btn btn-primary" type="submit" >Submit</a>
       </form>
           
         </main>

@@ -176,11 +176,7 @@ class Admin extends CI_Controller{
             'svg' => 'image/svg+xml',
             'svgz' => 'image/svg+xml',
             );
-            //var_dump($_FILES);
             if (isset ( $_FILES['cover']) &&  $_FILES['cover']['name'] !='') {
-                //var_dump('burada');
-                
-            
                 $cover_name = $_FILES['cover']['name'];
                 $file_size = $_FILES['cover']['size'];
                 $file_type = $_FILES['cover']['type'];
@@ -191,8 +187,6 @@ class Admin extends CI_Controller{
             } else {
                 $cover = null;
             }
-            //var_dump( $cover);
-            //exit();
             $this->load->library('form_validation');
             $this->load->library('session');
             $this->form_validation->set_rules('name','name','required');
@@ -255,16 +249,32 @@ class Admin extends CI_Controller{
              
         }else{  
             $this->load->model('Admin_model');
-            $authors = $this->Admin_model->all_authors();
-            $genres = $this->Admin_model->all_genres();
             $data = array(
-                'authors' => $authors,
-                'genres' => $genres,
                 'error'=>'Please fill out all required fields with right values!'
             );
-            $this->load->view('new_book',$data); 
+            $this->load->view('new_author',$data); 
         }  
-}
+    }
+
+    public function add_genre(){
+        $this->load->library('form_validation');
+        $this->load->library('session');
+        $this->form_validation->set_rules('name','name','required');
+        if($this->form_validation->run()){
+            $name = $this->input->post('name');
+            $data=array(
+                'name' => $name
+            );
+            $this->load->model('Admin_model');
+            $this->Admin_model->add_genre($data);
+        }else{
+            $this->load->model('Admin_model');
+            $data = array(
+                'error'=>'Please fill out all required fields with right values!'
+            );
+            $this->load->view('new_genre',$data);
+        }
+    }
 
         
         
