@@ -14,4 +14,5 @@ The project also has an admin panel in which the user can
 add, edit or delete books, genres or authors. Also admin can reach the statistics of the data from the panel.
 
 
+![Home Page](https://dosya.co/yzufgzsiu0jw/library.png.html)
 
